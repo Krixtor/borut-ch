@@ -1,0 +1,15 @@
+:root{--red:#d52b1e;--bg:#fbfbfb;--text:#111;--line:#ddd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,sans-serif;color:var(--text)}
+.container{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1200px;margin:auto;padding:70px 40px;align-items:center}
+.brand h1{font-size:clamp(64px,9vw,120px);margin:0;font-weight:800;letter-spacing:-.05em}
+.brand span{color:var(--red)}
+.accent{width:90px;height:3px;background:var(--red);margin:40px 0}
+.tag{letter-spacing:.35em}
+.lead{max-width:380px;color:#666;line-height:1.7;margin-top:30px}
+h2{font-size:20px;letter-spacing:.25em;font-weight:600;margin-bottom:40px}
+form{display:flex;flex-direction:column;gap:24px}
+input,textarea{border:none;border-bottom:1px solid var(--line);background:transparent;padding:14px 2px;font:inherit}
+textarea{min-height:140px;resize:vertical}
+button{margin-top:20px;border:none;background:none;color:var(--red);font-weight:700;letter-spacing:.15em;text-align:left;cursor:pointer}
+footer{text-align:center;color:#888;padding:24px}
+@media(max-width:850px){.container{grid-template-columns:1fr;gap:50px;padding:40px 24px}.brand h1{text-align:center}.accent{margin:30px auto}.tag,.lead{text-align:center}.lead{margin-left:auto;margin-right:auto}}
