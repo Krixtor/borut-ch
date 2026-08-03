@@ -1,7 +1,10 @@
 const form = document.getElementById("contactForm");
+const messageBox = document.getElementById("form-message");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  messageBox.className = "form-message";
+messageBox.textContent = "";
 
   const submitButton = form.querySelector("button");
   const originalButtonText = submitButton.textContent;
@@ -28,13 +31,19 @@ form.addEventListener("submit", async (event) => {
     const result = await response.json();
 
     if (result.success) {
-      alert("✅ Thank you! Your message has been sent.");
+      messageBox.className = "form-message success";
+messageBox.textContent =
+  "✓ Thank you! Your message has been sent successfully. I'll get back to you as soon as possible.";
       form.reset();
-    } else {
-      alert(`❌ ${result.error}`);
-    }
+   } else {
+  messageBox.className = "form-message error";
+  messageBox.textContent =
+    result.error || "Something went wrong. Please try again.";
+}
   } catch (error) {
-    alert("❌ Something went wrong. Please try again later.");
+    messageBox.className = "form-message error";
+messageBox.textContent =
+  "Something went wrong. Please try again later.";
     console.error(error);
   } finally {
     submitButton.disabled = false;
