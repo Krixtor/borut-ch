@@ -91,3 +91,39 @@ gap:56px;
 padding:48px 24px;
 }
 }
+
+.form-message {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-message.success {
+    display: block;
+    background: rgba(30, 215, 96, 0.08);
+    border: 1px solid rgba(30, 215, 96, 0.25);
+    color: #1ed760;
+}
+
+.form-message.error {
+    display: block;
+    background: rgba(255, 77, 77, 0.08);
+    border: 1px solid rgba(255, 77, 77, 0.25);
+    color: #ff4d4d;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

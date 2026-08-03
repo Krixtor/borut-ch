@@ -4,16 +4,58 @@ export async function onRequestPost(context) {
 
     const data = await request.json();
 
-    const { name, email, subject, message } = data;
+    const {
+  name,
+  email,
+  subject,
+  message,
+  turnstileToken,
+} = data;
 
     // Basic validation
-    if (!name || !email || !subject || !message) {
+    if (
+  !name ||
+  !email ||
+  !subject ||
+  !message ||
+  !turnstileToken
+) {
       return Response.json(
         { success: false, error: "Missing required fields." },
         { status: 400 }
       );
     }
+const ip =
+  request.headers.get("CF-Connecting-IP") ?? "";
 
+const verifyResponse = await fetch(
+  "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      secret: env.TURNSTILE_SECRET_KEY,
+      response: turnstileToken,
+      remoteip: ip,
+    }),
+  }
+);
+
+const verification = await verifyResponse.json();
+
+if (!verification.success) {
+  return Response.json(
+    {
+      success: false,
+      error: "Security verification failed. Please try again.",
+    },
+    {
+      status: 400,
+    }
+  );
+}
     const resendResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {

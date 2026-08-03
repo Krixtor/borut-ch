@@ -12,12 +12,17 @@ messageBox.textContent = "";
   submitButton.disabled = true;
   submitButton.textContent = "Sending...";
 
-  const formData = {
-    name: form.name.value.trim(),
-    email: form.email.value.trim(),
-    subject: form.subject.value.trim(),
-    message: form.message.value.trim(),
-  };
+ const turnstileToken = document.querySelector(
+  '[name="cf-turnstile-response"]'
+)?.value;
+
+const formData = {
+  name: form.name.value.trim(),
+  email: form.email.value.trim(),
+  subject: form.subject.value.trim(),
+  message: form.message.value.trim(),
+  turnstileToken,
+};
 
   try {
     const response = await fetch("/api/contact", {
