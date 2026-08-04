@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>borut.ch | Izdelava spletnih strani za mala podjetja</title>
+
+    <meta name="description" content="Izdelava hitrih, sodobnih spletnih strani za mala podjetja. SEO, Cloudflare, poslovna e-pošta in kontaktni obrazci.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="wrapper">
+
+    <section class="brand">
+
+        <h1>
+            <span class="name">borut</span><span class="tld">.ch</span>
+        </h1>
+
+        <div class="line"></div>
+
+        <h2>
+            Digitalizacija.<br>
+            Poenostavljena.
+        </h2>
+
+        <p class="subtitle">
+            Izdelujem hitre, sodobne spletne strani za mala podjetja.
+        </p>
+
+    </section>
+
+    <section class="contact">
+
+        <h3>STOPITE V STIK</h3>
+
+        <form id="contactForm">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Vaše ime"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Vaš e-poštni naslov"
+                required>
+
+            <input
+                type="text"
+                name="subject"
+                placeholder="Zadeva"
+                required>
+
+            <textarea
+                name="message"
+                placeholder="Vaše sporočilo"
+                required></textarea>
+
+            <button type="submit">
+                POŠLJI →
+            </button>
+
+            <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAAEExY8E-2u6qaQJo">
+            </div>
+
+            <div id="form-message" class="form-message"></div>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 borut.ch
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
